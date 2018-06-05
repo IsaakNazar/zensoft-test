@@ -1,8 +1,8 @@
 
-import fetch from "node-fetch";
-import { prompt } from "inquirer";               
+const fetch = require('node-fetch');
+const inquirer = require('inquirer');               
 
-prompt([
+inquirer.prompt([
   {
     type: 'input',
     name: 'teamname',
@@ -19,6 +19,7 @@ prompt([
     message: 'Your Repository name'
   }
 ]).then( answers => {
+
   
   fetch(`https://api.bitbucket.org/2.0/repositories/${answers.teamname}/`) //name of the inserted team 
     .then(res => res.json())
@@ -38,7 +39,7 @@ prompt([
                 //by default the length of a page = 10, 
                 //so we travercing the next pages to get 
                 //the rest values, until we hit the last page, 
-                //so we use function recursively, to go as deep as possible    
+                //so we use function recursively, to go as deep as possible   
                 .then(function getNextPage(json) {
                   
                   if (json.next) {
@@ -71,7 +72,7 @@ prompt([
                                 if (answers.username === rev.username) {
                                   const prsFromTeammatesThatShouldBeReviewed = json.links.html.href;
                                   console.log(prsFromTeammatesThatShouldBeReviewed);
-                                } //IF ends
+                                } else {console.log('no such User name')}
                               })
                             })
                         })
@@ -80,8 +81,9 @@ prompt([
                   })                 
                   
                 });
-            } //IF outer end
+            } else { console.log('No such repository name') } 
       }); // FILTER outer
       
     })
+    .catch(err => console.error(err));
 }); 
