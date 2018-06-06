@@ -33,8 +33,8 @@ then by repository name. When repository is found , it will filter the output de
 Then you get PR links only related to a user, that was submitted.
 
 ### Part 2
-We open Bitbucket website, go to the bottom-left corner -> click on user icon -> Bitbucket settings -> OAuth -> <br> `Add consumer`
-Fill up forms. Recommended fill the "Callback Url" form. Check Permissions (I checked all "read" checkboxes) -> click `Save` <br>
+We open Bitbucket website, go to the bottom-left corner -> click on user icon -> Bitbucket settings -> OAuth -> <br> `Add consumer`<br>
+Fill up forms. also fill the "Callback Url" form. Check the Permissions (I checked all "read" checkboxes) -> click `Save` <br>
 We get consumer's **Key** and **Secret**.
 We get the <br> `https://bitbucket.org/site/oauth2/authorize?client_id={client_id}&response_type=code` from [docs](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication)
 When a user submits, we send him(her) that link with client_id=**Key** (get the **Key** and paste it inside `client_id`) <br>
