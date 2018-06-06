@@ -1,7 +1,8 @@
 
 const fetch = require('node-fetch');
-const inquirer = require('inquirer');               
-
+const inquirer = require('inquirer');  
+const chalk = require('chalk');  //           
+const rediska = '#F6F6F6';
 inquirer.prompt([
   {
     type: 'input',
@@ -47,7 +48,7 @@ inquirer.prompt([
                       .then(res => res.json())
                       .then(json => {
                         return getNextPage(json)
-                      })
+                      }).catch(err => console.error(err));
                   }
                   json.values.filter(repo => {
                     //PR's status should be "OPEN"
@@ -71,17 +72,21 @@ inquirer.prompt([
                               json.reviewers.filter(rev => {
                                 if (answers.username === rev.username) {
                                   const prsFromTeammatesThatShouldBeReviewed = json.links.html.href;
-                                  console.log(prsFromTeammatesThatShouldBeReviewed);
-                                } else {console.log('no such User name')}
+                                  console.log(chalk.green
+                                    (prsFromTeammatesThatShouldBeReviewed));
+                                 } else {console.log(chalk.red('no such User name'))}
                               })
                             })
+                            .catch(err => console.error(err));
                         })
+                        .catch(err => console.error(err));
                       
                     }
                   })                 
                   
-                });
-            } else { console.log('No such repository name') } 
+                })
+                .catch(err => console.error(err));
+            }            
       }); // FILTER outer
       
     })
