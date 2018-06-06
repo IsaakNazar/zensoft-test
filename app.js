@@ -1,8 +1,7 @@
 
-const fetch = require('node-fetch');
-const inquirer = require('inquirer');  
-const chalk = require('chalk');  //           
-const rediska = '#F6F6F6';
+const fetch = require('node-fetch'); // fetch data
+const inquirer = require('inquirer');  // interactivity
+const chalk = require('chalk');  //    Terminal string styling
 inquirer.prompt([
   {
     type: 'input',
