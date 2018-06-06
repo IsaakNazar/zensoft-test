@@ -35,9 +35,9 @@ Then you get PR links only related to a user, that was submitted.
 ### Part 2
 We open Bitbucket website, go to the bottom-left corner -> click on user icon -> Bitbucket settings -> OAuth -> <br> `Add consumer`<br>
 Fill up forms. also fill the "Callback Url" form. Check the Permissions (I checked all "read" checkboxes) -> click `Save` <br>
-We get consumer's **Key** and **Secret**.
-We get the <br> `https://bitbucket.org/site/oauth2/authorize?client_id={client_id}&response_type=code` from [docs](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication)
-When a user submits, we send him(her) that link with client_id=**Key** (get the **Key** and paste it inside `client_id`) <br>
+after all this procedure we'll get consumer's **Key** and **Secret**.
+We get the <br> `https://bitbucket.org/site/oauth2/authorize?client_id={client_id}&response_type=code` from [docs](https://developer.atlassian.com/bitbucket/api/2/reference/meta/authentication). <br>
+When a user submits, we send him(her) link above with client_id=**Key** (get the **Key** and paste it inside `client_id`) <br>
 We will be redirected to bitbucket login page and be asked to confirm access to user account:
 ![confirm](https://user-images.githubusercontent.com/25715575/41024547-5caf0974-6991-11e8-8c48-984394a1bd9d.jpg)
 Click `Grant access` and get a link. We need only `access_token={access token}` part of the link. Copy it and paste it to this link:
