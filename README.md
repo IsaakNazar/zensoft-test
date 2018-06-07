@@ -44,8 +44,8 @@ Click `Grant access` and get a link. We need only `access_token={access token}` 
 `https://api/bitbucket.org/2.0/repositories/{user name}?access_token={access token}`.
 So this link gives us access to private repositories of submitted {user name}. <br>
 
-The problem was: How to handle that access token when a user signs in? Where to store that link to get the access token?
-If that problem was resolved, then the rest of the implementation of the code would be like the required part of the task.
+The problem was: How to handle that access token when a user signs in.? Where to store that link to get the access token.?
+If that problem was resolved, then the rest implementation of the code would be like the required part of the task.
 ### output public PRs -> console
 ### output private PRs -> new tab of a browser
 
